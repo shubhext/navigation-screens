@@ -1,17 +1,16 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import DrawerNavigation from './DrawerNavigation';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import SettingsScreen from './SettingsScreen';
+import BottomTabStackNavigator from './TabNavigator';
+
 interface Iprops {
   navigation: any;
 }
 
-const TopTab = createMaterialTopTabNavigator();
 const HomeScreen: React.FC<Iprops> = props => {
   return (
-    <View>
+    <>
+      <BottomTabStackNavigator />
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
@@ -25,13 +24,7 @@ const HomeScreen: React.FC<Iprops> = props => {
         </TouchableOpacity>
       </View>
       <Text>HomeScreen</Text>
-      <View>
-        <>
-          <TopTab.Screen name="Home" component={HomeScreen} />
-          <TopTab.Screen name="Settings" component={SettingsScreen} />
-        </>
-      </View>
-    </View>
+    </>
   );
 };
 
