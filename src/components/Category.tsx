@@ -1,10 +1,11 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import {stylesHomeScreen} from './HomeScreen';
 
 const Category = () => {
   return (
     <View>
-      <Text>Category</Text>
+      <Text style={stylesHomeScreen.text}>Category</Text>
     </View>
   );
 };

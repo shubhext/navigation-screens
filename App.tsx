@@ -5,18 +5,18 @@ import SearchScreen from './src/components/SearchScreen';
 import HomeScreen from './src/components/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Feed from './src/components/Feed';
-import Category from './src/components/Category';
+// import Feed from './src/components/Feed';
+// import Category from './src/components/Category';
 import HomeIcon from 'react-native-vector-icons/MaterialIcons';
 import FeathgerIcons from 'react-native-vector-icons/Feather';
 import SettingsScreen from './src/components/SettingsScreen';
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () => {
-  const Drawer = createDrawerNavigator();
   return (
     <>
       <Drawer.Navigator
@@ -27,23 +27,14 @@ const DrawerNavigation = () => {
           drawerActiveTintColor: '#fff',
           drawerPosition: 'left',
         }}>
-        <Drawer.Screen name="Home" component={BottomTabStackNavigator} />
+        <Drawer.Screen
+          name="BottomTabStackNavigator"
+          component={BottomTabStackNavigator}
+        />
         {/* <Drawer.Screen name="Home" component={BottomTabStackNavigator} /> */}
         <Drawer.Screen name="Search" component={SearchScreen} />
       </Drawer.Navigator>
     </>
-  );
-};
-
-//top tab navigation
-const TopTabNavigation = () => {
-  const TopTab = createMaterialTopTabNavigator();
-  return (
-    <TopTab.Navigator>
-      <TopTab.Screen name="Home" component={HomeScreen} />
-      <TopTab.Screen name="Feed" component={Feed} />
-      <TopTab.Screen name="Category" component={Category} />
-    </TopTab.Navigator>
   );
 };
 
@@ -52,8 +43,8 @@ const BottomTabStackNavigator = () => {
   return (
     <BottomTab.Navigator>
       <BottomTab.Screen
-        name="TopTabNavigation"
-        component={TopTabNavigation}
+        name="Home"
+        component={HomeScreen}
         options={{
           headerShown: false,
           tabBarLabel: 'Home',
@@ -94,7 +85,7 @@ const MainStack = () => {
     <>
       <Stack.Navigator>
         <Stack.Screen
-          name="DrawerNavigation"
+          name="Dashboard"
           component={DrawerNavigation}
           options={{
             headerShown: false,

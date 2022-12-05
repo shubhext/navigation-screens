@@ -1,32 +1,45 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-
+import Feed from './Feed';
+import Category from './Category';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 interface Iprops {
   navigation: any;
 }
+const TopTab = createMaterialTopTabNavigator();
 
+//top tab navigation
+const TopTabNavigation = () => {
+  return (
+    <TopTab.Navigator>
+      <TopTab.Screen name="Feed" component={Feed} />
+      <TopTab.Screen name="Category" component={Category} />
+    </TopTab.Navigator>
+  );
+};
 const HomeScreen: React.FC<Iprops> = props => {
   return (
     <>
-      <View style={styles.header}>
+      <View style={stylesHomeScreen.header}>
         <TouchableOpacity
           onPress={() => {
             props.navigation.toggleDrawer();
           }}>
           <FeatherIcon name="menu" size={30} color="#FFF" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.bellIcon}>
+        <TouchableOpacity style={stylesHomeScreen.bellIcon}>
           <FeatherIcon name="bell" size={30} color="#FFF" />
-          <Text style={styles.textBell}>3+</Text>
+          <Text style={stylesHomeScreen.textBell}>3+</Text>
         </TouchableOpacity>
       </View>
-      <Text>HomeScreen</Text>
+      <TopTabNavigation />
+      <Text style={stylesHomeScreen.text}>HomeScreen</Text>
     </>
   );
 };
 
-const styles = StyleSheet.create({
+export const stylesHomeScreen = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -54,6 +67,9 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  text: {
+    color: '#000',
   },
 });
 export default HomeScreen;

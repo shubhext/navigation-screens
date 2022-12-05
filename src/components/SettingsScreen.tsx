@@ -1,10 +1,11 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import {stylesHomeScreen} from './HomeScreen';
 
 const SettingsScreen = () => {
   return (
     <View>
-      <Text>SettingsScreen</Text>
+      <Text style={stylesHomeScreen.text}>SettingsScreen</Text>
     </View>
   );
 };
