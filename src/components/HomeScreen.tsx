@@ -9,8 +9,6 @@ interface Iprops {
 const HomeScreen: React.FC<Iprops> = props => {
   return (
     <>
-      {/* <BottomTabStackNavigator /> */}
-      {/* <DrawerNavigation /> */}
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
