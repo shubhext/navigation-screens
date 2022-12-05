@@ -8,7 +8,7 @@ const SearchScreen: React.FC<Iprops> = props => {
     <View>
       <Text>SearchScreen</Text>
       <Button
-        title="back"
+        title="go back"
         onPress={() => {
           props.navigation.navigate('Home');
         }}

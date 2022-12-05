@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import SearchScreen from './src/components/SearchScreen';
-import SettingsScreen from './src/components/SearchScreen';
+
 import HomeScreen from './src/components/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -9,7 +9,9 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Feed from './src/components/Feed';
 import Category from './src/components/Category';
-
+import HomeIcon from 'react-native-vector-icons/MaterialIcons';
+import FeathgerIcons from 'react-native-vector-icons/Feather';
+import SettingsScreen from './src/components/SettingsScreen';
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
@@ -50,10 +52,14 @@ const BottomTabStackNavigator = () => {
   return (
     <BottomTab.Navigator>
       <BottomTab.Screen
-        name="Home"
+        name="TopTabNavigation"
         component={TopTabNavigation}
         options={{
           headerShown: false,
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color, size}) => (
+            <HomeIcon name="home" color={color} size={size} />
+          ),
         }}
       />
       <BottomTab.Screen
@@ -61,6 +67,10 @@ const BottomTabStackNavigator = () => {
         component={SettingsScreen}
         options={{
           headerShown: false,
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({color, size}) => (
+            <FeathgerIcons name="settings" color={color} size={size} />
+          ),
         }}
       />
       <BottomTab.Screen
@@ -68,6 +78,10 @@ const BottomTabStackNavigator = () => {
         component={SearchScreen}
         options={{
           headerShown: false,
+          tabBarLabel: 'Search',
+          tabBarIcon: ({color, size}) => (
+            <FeathgerIcons name="search" color={color} size={size} />
+          ),
         }}
       />
     </BottomTab.Navigator>
