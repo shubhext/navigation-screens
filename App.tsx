@@ -1,65 +1,92 @@
-// import * as React from 'react';
-// import {NavigationContainer, StackActions} from '@react-navigation/native';
-// import {createStackNavigator} from '@react-navigation/stack';
-// import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-
-// interface AppProps {}
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// const TopTab = createMaterialTopTabNavigator();
-// interface AppState {}
-// const MainStack = createStackNavigator();
-
-// class MainStack extends Component{
-//   return (
-//     <NavigationContainer>
-//     <Stack.Navigator>
-//     <stack.screen component={} options={{title="HomeScreen"}} />
-//     </Stack.Navigator>
-//     <NavigationContainer/>
-
-//     )
-// }
-
-// class App extends React.Component<AppProps, AppState> {
-//   constructor(props: AppProps) {
-//     super(props);
-//     this.state = {};
-//   }
-
-//   render() {
-//     return (
-//       <NavigationContainer>
-//         {/* <TabNavigator />
-//         <TopTabNavigation /> */}
-//       </NavigationContainer>
-//     );
-//   }
-// }
-
-// export default App;
-
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './src/components/HomeScreen';
 import SearchScreen from './src/components/SearchScreen';
+import SettingsScreen from './src/components/SearchScreen';
+import HomeScreen from './src/components/HomeScreen';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import Feed from './src/components/Feed';
+import Category from './src/components/Category';
 
-// const MainStack = createNativeStackNavigator();
-const homeStack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
+const BottomTab = createBottomTabNavigator();
 
-const HomeContainer = () => {
+const DrawerNavigation = () => {
+  const Drawer = createDrawerNavigator();
   return (
     <>
-      <homeStack.Navigator initialRouteName="Home">
-        <homeStack.Screen
-          name="Home"
-          component={HomeScreen}
+      <Drawer.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+          drawerActiveBackgroundColor: '#0E5AA3',
+          drawerActiveTintColor: '#fff',
+          drawerPosition: 'left',
+        }}>
+        <Drawer.Screen name="Home" component={BottomTabStackNavigator} />
+        {/* <Drawer.Screen name="Home" component={BottomTabStackNavigator} /> */}
+        <Drawer.Screen name="Search" component={SearchScreen} />
+      </Drawer.Navigator>
+    </>
+  );
+};
+
+//top tab navigation
+const TopTabNavigation = () => {
+  const TopTab = createMaterialTopTabNavigator();
+  return (
+    <TopTab.Navigator>
+      <TopTab.Screen name="Home" component={HomeScreen} />
+      <TopTab.Screen name="Feed" component={Feed} />
+      <TopTab.Screen name="Category" component={Category} />
+    </TopTab.Navigator>
+  );
+};
+
+//bottom tabs navigation
+const BottomTabStackNavigator = () => {
+  return (
+    <BottomTab.Navigator>
+      <BottomTab.Screen
+        name="Home"
+        component={TopTabNavigation}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <BottomTab.Screen
+        name="Setting"
+        component={SettingsScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <BottomTab.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </BottomTab.Navigator>
+  );
+};
+
+// main stack navigation
+const MainStack = () => {
+  return (
+    <>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="DrawerNavigation"
+          component={DrawerNavigation}
           options={{
             headerShown: false,
           }}
         />
-        <homeStack.Screen name="Search" component={SearchScreen} />
-      </homeStack.Navigator>
+      </Stack.Navigator>
     </>
   );
 };
@@ -67,7 +94,7 @@ const HomeContainer = () => {
 function App() {
   return (
     <NavigationContainer>
-      <HomeContainer />
+      <MainStack />
     </NavigationContainer>
   );
 }

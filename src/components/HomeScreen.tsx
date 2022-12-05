@@ -1,7 +1,6 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import BottomTabStackNavigator from './TabNavigator';
 
 interface Iprops {
   navigation: any;
@@ -10,7 +9,8 @@ interface Iprops {
 const HomeScreen: React.FC<Iprops> = props => {
   return (
     <>
-      <BottomTabStackNavigator />
+      {/* <BottomTabStackNavigator /> */}
+      {/* <DrawerNavigation /> */}
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
