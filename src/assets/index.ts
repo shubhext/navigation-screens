@@ -1,3 +1,3 @@
-const LogoImg = require('./logo.svg');
+import LogoImg from './logo.svg';
 
 export {LogoImg};

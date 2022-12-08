@@ -28,6 +28,7 @@ const TopTabNavigation = () => {
       }}>
       <TopTab.Screen name="Phone" component={Phone} />
       <TopTab.Screen name="Contact" component={Contact} />
+      <TopTab.Screen name="List" component={Contact} />
     </TopTab.Navigator>
   );
 };
@@ -44,12 +45,20 @@ class HomeScreen extends React.Component<HomeScreenProps, HomeScreenState> {
             onPress={() => this.props.navigation.toggleDrawer()}>
             <FeatherIcon name="menu" color="#1390C9" size={30} />
           </TouchableOpacity>
-          <Image source={LogoImg} style={styles.Image} />
+          <LogoImg
+            width={110}
+            height={50}
+            // style={{
+            //   fontSize: 10,
+            // }}
+          />
+
           <Text style={styles.HomeText}>Home</Text>
         </View>
-
+        <View>
+          <Text>Home screen</Text>
+        </View>
         <TopTabNavigation />
-        <Text>Home screen</Text>
       </>
     );
   }
@@ -61,19 +70,24 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     padding: '1%',
-    backgroundColor: '#83CCA8',
+    backgroundColor: '#fff',
     marginTop: 0,
     justifyContent: 'space-between',
     alignItems: 'center',
+    elevation: 3,
+    shadowColor: 'red',
   },
   Image: {
-    flex: 1,
+    width: '50%',
+
+    height: 50,
+    resizeMode: 'contain',
   },
   HomeText: {
     color: '#000',
     fontSize: 20,
     fontWeight: '600',
-    color: '#fff',
+    color: '#000',
   },
 });
 

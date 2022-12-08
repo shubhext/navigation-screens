@@ -11,14 +11,14 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigation = () => {
   const drawerCustom = (props: any) => (
     <View>
-      <Image
-        source={LogoImg}
+      <LogoImg
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
-          width: '100%',
-          height: 50,
-          resizeMode: 'contain',
-          backgroundColor: 'red',
+          width: '90%',
+          height: 40,
+
+          marginLeft: 'auto',
+          marginRight: 'auto',
         }}
       />
 
