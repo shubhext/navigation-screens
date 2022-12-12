@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {Text, View} from 'react-native';
+import {styles} from './styles';
 
 interface ContactProps {}
 
@@ -14,8 +15,8 @@ class Contact extends React.Component<ContactProps, ContactState> {
   render() {
     return (
       <>
-        <View>
-          <Text>contact</Text>
+        <View style={styles.view}>
+          <Text style={styles.text}>Contact</Text>
         </View>
       </>
     );

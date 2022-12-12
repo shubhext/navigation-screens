@@ -1,6 +1,10 @@
 import * as React from 'react';
-import {Text} from 'react-native';
-interface CartProps {}
+import {Text, View} from 'react-native';
+import Header from './Header';
+import {styles} from './styles';
+interface CartProps {
+  navigation?: any;
+}
 
 interface CartState {}
 
@@ -12,7 +16,10 @@ class Cart extends React.Component<CartProps, CartState> {
   render() {
     return (
       <>
-        <Text>Cart</Text>
+        <Header navigation={this.props.navigation} />
+        <View style={styles.view}>
+          <Text style={styles.text}>Cart</Text>
+        </View>
       </>
     );
   }

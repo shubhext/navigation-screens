@@ -1,7 +1,10 @@
 import * as React from 'react';
-import {Text} from 'react-native';
-
-interface SearchProps {}
+import {Text, View} from 'react-native';
+import Header from './Header';
+import {styles} from './styles';
+interface SearchProps {
+  navigation?: any;
+}
 
 interface SearchState {}
 
@@ -11,7 +14,14 @@ class Search extends React.Component<SearchProps, SearchState> {
     this.state = {};
   }
   render() {
-    return <Text>Search</Text>;
+    return (
+      <>
+        <Header navigation={this.props.navigation} />
+        <View style={styles.view}>
+          <Text style={styles.text}>Search</Text>
+        </View>
+      </>
+    );
   }
 }
 

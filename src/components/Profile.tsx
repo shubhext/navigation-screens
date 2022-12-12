@@ -1,7 +1,11 @@
 import * as React from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
+import Header from './Header';
+import {styles} from './styles';
 
-interface ProfileProps {}
+interface ProfileProps {
+  navigation?: any;
+}
 
 interface ProfileState {}
 
@@ -11,7 +15,14 @@ class Profile extends React.Component<ProfileProps, ProfileState> {
     this.state = {};
   }
   render() {
-    return <Text>Profile</Text>;
+    return (
+      <>
+        <Header navigation={this.props.navigation} />
+        <View style={styles.view}>
+          <Text style={styles.text}>profile</Text>
+        </View>
+      </>
+    );
   }
 }
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Text, View} from 'react-native';
+import {styles} from './styles';
 
 interface PhoneProps {}
 
@@ -12,8 +13,8 @@ class Phone extends React.Component<PhoneProps, PhoneState> {
   }
   render() {
     return (
-      <View>
-        <Text>Phone</Text>
+      <View style={styles.view}>
+        <Text style={styles.text}>Phone</Text>
       </View>
     );
   }
