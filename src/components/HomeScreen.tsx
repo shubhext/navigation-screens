@@ -33,6 +33,7 @@ class HomeScreen extends React.Component<HomeScreenProps, HomeScreenState> {
     return (
       <>
         <Header navigation={this.props.navigation} />
+
         <View style={{marginTop: 15, marginBottom: 15}}>
           <Text style={styles.text}>Home screen</Text>
         </View>

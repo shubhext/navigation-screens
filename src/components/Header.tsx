@@ -9,13 +9,7 @@ const Header: React.FC<{navigation: any}> = props => {
       <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
         <FeatherIcon name="menu" color="#1390C9" size={30} />
       </TouchableOpacity>
-      <LogoImg
-        width={110}
-        height={50}
-        // style={{
-        //   fontSize: 10,
-        // }}
-      />
+      <LogoImg width={110} height={50} />
 
       <Text style={styles.HomeText}>Home</Text>
     </View>
@@ -46,6 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     color: '#000',
+    tintColor: '#000',
   },
 });
 
